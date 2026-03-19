@@ -1,0 +1,13 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="section list-stack">
+    <view class="card panel" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openOrder">
+      <view class="feature-top">
+        <view class="feature-title">{{item.instrument.name}}</view>
+        <view class="badge">{{item.status}}</view>
+      </view>
+      <view class="meta-text">{{item.id}} · {{item.createdAt}}</view>
+      <view class="meta-text">金额：{{item.amount}} 元</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="section card panel">
+    <view class="form-label">评价对象</view>
+    <input class="form-input" data-field="target" bindinput="onInput" placeholder="填写仪器名称或订单" />
+    <view class="form-label">评分</view>
+    <input class="form-input" data-field="score" bindinput="onInput" placeholder="1-5 分" />
+    <view class="form-label">评价内容</view>
+    <textarea class="form-textarea" data-field="content" bindinput="onInput" placeholder="请输入你的评价"></textarea>
+    <view class="primary-btn full-btn" bindtap="submit">提交评价</view>
+  </view>
+</view>

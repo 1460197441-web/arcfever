@@ -1,0 +1,21 @@
+.role-card,
+.entry-card,
+.instrument-card {
+  padding: 28rpx;
+}
+
+.entry-card {
+  min-height: 220rpx;
+}
+
+.entry-icon {
+  width: 54rpx;
+  height: 54rpx;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(36, 168, 173, 0.18), rgba(21, 91, 145, 0.08));
+  color: #1a7899;
+  font-size: 24rpx;
+}

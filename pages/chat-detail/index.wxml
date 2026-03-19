@@ -1,0 +1,14 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">聊天详情</view>
+    <view class="hero-title">{{chat.sellerName}}</view>
+    <view class="hero-copy">{{chat.instrumentName}}</view>
+  </view>
+  <view class="section list-stack">
+    <view class="message {{item.from === 'buyer' ? 'buyer' : 'seller'}}" wx:for="{{messages}}" wx:key="time">
+      <view class="message-bubble">{{item.text}}</view>
+      <view class="message-time">{{item.time}}</view>
+    </view>
+  </view>
+</view>

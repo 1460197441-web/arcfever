@@ -1,0 +1,12 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="section list-stack">
+    <view class="card panel" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openInstrument">
+      <view class="feature-top">
+        <view class="feature-title">{{item.name}}</view>
+        <view class="feature-price">{{item.priceLabel}}</view>
+      </view>
+      <view class="meta-text">{{item.school}} · {{item.sellerName}}</view>
+    </view>
+  </view>
+</view>

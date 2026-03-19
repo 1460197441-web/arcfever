@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/category/index",
+    "pages/equipment/index",
+    "pages/equipment-detail/index",
+    "pages/cart/index",
+    "pages/order-confirm/index",
+    "pages/order-payment/index",
+    "pages/order-success/index",
+    "pages/chat-list/index",
+    "pages/chat-detail/index",
+    "pages/profile/index",
+    "pages/certification/index",
+    "pages/my-instruments/index",
+    "pages/instrument-publish/index",
+    "pages/instrument-edit/index",
+    "pages/order-list/index",
+    "pages/order-detail/index",
+    "pages/favorite-list/index",
+    "pages/rating-list/index",
+    "pages/rating-publish/index",
+    "pages/admin/index",
+    "pages/admin-schools/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "神经突触",
+    "navigationBarBackgroundColor": "#0B1F33",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F3F8FC",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

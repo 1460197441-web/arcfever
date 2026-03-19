@@ -1,0 +1,17 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">消息中心</view>
+    <view class="hero-title">和卖家保持沟通</view>
+  </view>
+  <view class="section list-stack">
+    <view class="card panel" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openChat">
+      <view class="feature-top">
+        <view class="feature-title">{{item.sellerName}}</view>
+        <view class="badge">{{item.updatedAt}}</view>
+      </view>
+      <view class="meta-text">{{item.instrumentName}}</view>
+      <view class="feature-copy">{{item.lastMessage}}</view>
+    </view>
+  </view>
+</view>

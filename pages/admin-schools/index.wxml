@@ -1,0 +1,19 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="section card panel">
+    <view class="section-title">新增认证学校 / 学院</view>
+    <view class="form-label">学校名称</view>
+    <input class="form-input" data-field="schoolName" value="{{schoolName}}" bindinput="onInput" placeholder="请输入学校名称" />
+    <view class="form-label">学院列表</view>
+    <textarea class="form-textarea" data-field="collegesText" value="{{collegesText}}" bindinput="onInput" placeholder="多个学院请用“、”分隔"></textarea>
+    <view class="primary-btn full-btn" bindtap="submit">添加到认证列表</view>
+  </view>
+  <view class="section list-stack">
+    <view class="card panel" wx:for="{{list}}" wx:key="id">
+      <view class="feature-title">{{item.name}}</view>
+      <view class="chip-row top-gap">
+        <view class="chip" wx:for="{{item.colleges}}" wx:key="*this">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">订单确认</view>
+    <view class="hero-title">确认联系人与下单信息</view>
+  </view>
+  <view wx:if="{{!preview}}" class="loading-state">正在准备订单...</view>
+  <view wx:else>
+    <view class="section card panel">
+      <view class="meta-line">联系人：{{preview.contactName}}</view>
+      <view class="meta-line">电话：{{preview.contactPhone}}</view>
+      <view class="meta-line">总额：{{preview.total}} 元</view>
+      <view class="form-label">备注</view>
+      <textarea class="form-textarea" placeholder="填写交易说明或取货方式" bindinput="onInput"></textarea>
+      <view class="primary-btn full-btn" bindtap="submitOrder">提交并去支付</view>
+    </view>
+  </view>
+</view>

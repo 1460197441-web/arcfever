@@ -1,0 +1,68 @@
+<view class="page-shell detail-shell">
+  <view class="nav-row">
+    <view class="back-btn" bindtap="goBack">‹</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading-state">正在加载仪器详情...</view>
+
+  <block wx:elif="{{instrument}}">
+    <view class="hero-panel">
+      <view class="hero-tag">{{instrument.category}}</view>
+      <view class="hero-title">{{instrument.name}}</view>
+      <view class="hero-copy">{{instrument.desc}}</view>
+      <view class="metric-strip">
+        <view class="metric-item">
+          <view class="metric-value">{{instrument.priceLabel}}</view>
+          <view class="metric-label">日租参考价</view>
+        </view>
+        <view class="metric-item">
+          <view class="metric-value">{{instrument.condition}}</view>
+          <view class="metric-label">设备成色</view>
+        </view>
+        <view class="metric-item">
+          <view class="metric-value">{{instrument.verified ? '已认证' : '未认证'}}</view>
+          <view class="metric-label">发布者状态</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="card panel">
+        <view class="feature-top">
+          <view class="feature-title">发布者信息</view>
+          <view class="badge">{{isFavorite ? '已收藏' : '可收藏'}}</view>
+        </view>
+        <view class="meta-line">姓名：{{instrument.sellerName}}</view>
+        <view class="meta-line">电话：{{instrument.phone}}</view>
+        <view class="meta-line">学校：{{instrument.school}}</view>
+        <view class="meta-line">学院：{{instrument.college}}</view>
+        <view class="chip-row top-gap">
+          <view class="chip" wx:for="{{instrument.tags}}" wx:key="*this">{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <view>
+          <view class="section-title">相关推荐</view>
+          <view class="section-subtitle">来自其他认证用户的在架仪器</view>
+        </view>
+      </view>
+      <view class="list-stack">
+        <view class="card instrument-card" wx:for="{{recommendations}}" wx:key="id" data-id="{{item.id}}" bindtap="openInstrument">
+          <view class="feature-top">
+            <view class="feature-title">{{item.name}}</view>
+            <view class="feature-price">{{item.priceLabel}}</view>
+          </view>
+          <view class="meta-text">{{item.school}} · {{item.sellerName}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class="action-bar">
+    <view class="ghost-action" bindtap="goChat">联系卖家</view>
+    <view class="primary-action" bindtap="addToCart">加入购物车</view>
+  </view>
+</view>

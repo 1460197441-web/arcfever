@@ -1,0 +1,22 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">卖家操作</view>
+    <view class="hero-title">发布你的仪器</view>
+  </view>
+  <view class="section card panel">
+    <view class="form-label">仪器名称</view>
+    <input class="form-input" data-field="name" bindinput="onInput" placeholder="请输入仪器名称" />
+    <view class="form-label">分类</view>
+    <picker range="{{categories}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+      <view class="picker-box">{{categories[categoryIndex] || '请选择分类'}}</view>
+    </picker>
+    <view class="form-label">价格</view>
+    <input class="form-input" data-field="price" bindinput="onInput" placeholder="请输入价格" />
+    <view class="form-label">所在城市</view>
+    <input class="form-input" data-field="location" bindinput="onInput" placeholder="请输入城市" />
+    <view class="form-label">描述</view>
+    <textarea class="form-textarea" data-field="desc" bindinput="onInput" placeholder="请输入仪器描述"></textarea>
+    <view class="primary-btn full-btn" bindtap="submit">确认发布</view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view wx:if="{{!instrument}}" class="loading-state">正在加载仪器信息...</view>
+  <view wx:else>
+    <view class="hero-panel">
+      <view class="hero-tag">编辑仪器</view>
+      <view class="hero-title">{{instrument.name}}</view>
+    </view>
+    <view class="section card panel">
+      <view class="form-label">价格</view>
+      <input class="form-input" value="{{price}}" data-field="price" bindinput="onInput" />
+      <view class="form-label">城市</view>
+      <input class="form-input" value="{{location}}" data-field="location" bindinput="onInput" />
+      <view class="form-label">描述</view>
+      <textarea class="form-textarea" data-field="desc" bindinput="onInput">{{desc}}</textarea>
+      <view class="primary-btn full-btn" bindtap="submit">保存修改</view>
+    </view>
+  </view>
+</view>

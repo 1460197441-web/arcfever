@@ -1,0 +1,39 @@
+<view class="page-shell">
+  <view class="nav-row">
+    <view class="back-btn" bindtap="goBack">‹</view>
+  </view>
+  <view class="hero-panel">
+    <view class="hero-tag">分类导航</view>
+    <view class="hero-title">先按设备类型，再按需求细找</view>
+    <view class="hero-copy">同时展示当前管理员维护的认证院校与学院，便于用户明确认证归属。</view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view class="section-title">仪器分类</view>
+    </view>
+    <view class="grid-two">
+      <view class="card menu-card" wx:for="{{categories}}" wx:key="*this" data-category="{{item}}" bindtap="openCategory">
+        <view class="feature-title">{{item}}</view>
+        <view class="feature-copy">进入该分类查看在架仪器</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view>
+        <view class="section-title">认证院校与学院</view>
+        <view class="section-subtitle">由管理者统一维护</view>
+      </view>
+    </view>
+    <view class="list-stack">
+      <view class="card panel" wx:for="{{schools}}" wx:key="id">
+        <view class="feature-title">{{item.name}}</view>
+        <view class="chip-row top-gap">
+          <view class="chip" wx:for="{{item.colleges}}" wx:key="*this">{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

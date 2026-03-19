@@ -1,0 +1,29 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">购物车</view>
+    <view class="hero-title">确认你准备下单的仪器</view>
+  </view>
+  <view wx:if="{{loading}}" class="loading-state">正在加载购物车...</view>
+  <view wx:elif="{{!list.length}}" class="empty-state">购物车还是空的，先去看看仪器吧。</view>
+  <view wx:else>
+    <view class="section list-stack">
+      <view class="card panel" wx:for="{{list}}" wx:key="id">
+        <view class="feature-top">
+          <view class="feature-title">{{item.instrument.name}}</view>
+          <view class="feature-price">x{{item.quantity}}</view>
+        </view>
+        <view class="meta-text">{{item.instrument.sellerName}} · {{item.instrument.school}}</view>
+        <view class="feature-copy">{{item.instrument.desc}}</view>
+        <view class="meta-text">小计：{{item.subtotal}} 元</view>
+      </view>
+    </view>
+    <view class="section card panel">
+      <view class="feature-top">
+        <view class="feature-title">合计</view>
+        <view class="feature-price">{{total}} 元</view>
+      </view>
+      <view class="primary-btn full-btn" bindtap="goConfirm">去结算</view>
+    </view>
+  </view>
+</view>

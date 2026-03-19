@@ -1,0 +1,23 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">个人认证</view>
+    <view class="hero-title">姓名 + 电话 + 学校学院</view>
+    <view class="hero-copy">按你现在的规则，认证表单只保留必要信息，学校和学院从管理员维护的列表中选择。</view>
+  </view>
+  <view class="section card panel">
+    <view class="form-label">姓名</view>
+    <input class="form-input" placeholder="请输入姓名" data-field="name" bindinput="onInput" />
+    <view class="form-label">电话</view>
+    <input class="form-input" type="number" placeholder="请输入手机号" data-field="phone" bindinput="onInput" />
+    <view class="form-label">学校</view>
+    <picker range="{{schoolNames}}" value="{{schoolIndex}}" bindchange="onSchoolChange">
+      <view class="picker-box">{{schoolNames[schoolIndex] || '请选择学校'}}</view>
+    </picker>
+    <view class="form-label">学院</view>
+    <picker range="{{collegeNames}}" value="{{collegeIndex}}" bindchange="onCollegeChange">
+      <view class="picker-box">{{collegeNames[collegeIndex] || '请选择学院'}}</view>
+    </picker>
+    <view class="primary-btn full-btn" bindtap="submit">提交认证</view>
+  </view>
+</view>

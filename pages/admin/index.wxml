@@ -1,0 +1,29 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">平台管理</view>
+    <view class="hero-title">学校学院维护与认证审核</view>
+    <view class="hero-copy">这个页面对应你说的“管理者 / 平台方”，负责审核和秩序维护。</view>
+  </view>
+  <view wx:if="{{stats}}" class="section grid-two">
+    <view class="card menu-card">
+      <view class="feature-title">{{stats.pendingCertification}}</view>
+      <view class="feature-copy">待审核认证</view>
+    </view>
+    <view class="card menu-card">
+      <view class="feature-title">{{stats.totalSchools}}</view>
+      <view class="feature-copy">认证院校</view>
+    </view>
+    <view class="card menu-card">
+      <view class="feature-title">{{stats.totalInstruments}}</view>
+      <view class="feature-copy">在架仪器</view>
+    </view>
+    <view class="card menu-card">
+      <view class="feature-title">{{stats.openDisputes}}</view>
+      <view class="feature-copy">纠纷工单</view>
+    </view>
+  </view>
+  <view class="section">
+    <view class="primary-btn full-btn" bindtap="goSchoolManage">管理学校与学院</view>
+  </view>
+</view>

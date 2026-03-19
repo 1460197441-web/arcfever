@@ -1,0 +1,21 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">我的仪器</view>
+    <view class="hero-title">管理你发布的设备</view>
+    <view class="hero-actions">
+      <view class="primary-btn" bindtap="goPublish">发布新仪器</view>
+    </view>
+  </view>
+  <view class="section list-stack">
+    <view class="card panel" wx:for="{{list}}" wx:key="id">
+      <view class="feature-top">
+        <view class="feature-title">{{item.name}}</view>
+        <view class="badge">{{item.publishStatus}}</view>
+      </view>
+      <view class="meta-text">{{item.category}} · {{item.priceLabel}}</view>
+      <view class="feature-copy">{{item.desc}}</view>
+      <view class="light-btn top-btn" data-id="{{item.id}}" bindtap="goEdit">编辑仪器</view>
+    </view>
+  </view>
+</view>

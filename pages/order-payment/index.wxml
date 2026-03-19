@@ -1,0 +1,14 @@
+<view class="page-shell">
+  <view class="nav-row"><view class="back-btn" bindtap="goBack">‹</view></view>
+  <view class="hero-panel">
+    <view class="hero-tag">模拟支付</view>
+    <view class="hero-title">支付完成后进入成功页</view>
+  </view>
+  <view wx:if="{{!order}}" class="loading-state">正在获取订单...</view>
+  <view wx:else class="section card panel">
+    <view class="feature-title">{{order.id}}</view>
+    <view class="meta-line">金额：{{order.amount}} 元</view>
+    <view class="meta-line">状态：{{order.status}}</view>
+    <view class="primary-btn full-btn" bindtap="payNow">立即支付</view>
+  </view>
+</view>

@@ -1,0 +1,76 @@
+<view class="page-shell">
+  <view wx:if="{{loading}}" class="loading-state">正在生成首页内容...</view>
+
+  <block wx:elif="{{homeData}}">
+    <view class="hero-panel">
+      <view class="hero-tag">仪器共享 · 认证交易 · 平台管理</view>
+      <view class="hero-title">{{homeData.hero.title}}</view>
+      <view class="hero-copy">{{homeData.hero.subtitle}}</view>
+      <view class="metric-strip">
+        <view class="metric-item" wx:for="{{homeData.stats}}" wx:key="label">
+          <view class="metric-value">{{item.value}}</view>
+          <view class="metric-label">{{item.label}}</view>
+        </view>
+      </view>
+      <view class="hero-actions">
+        <view class="primary-btn" data-page="/pages/category/index" bindtap="goPage">浏览仪器</view>
+        <view class="ghost-btn" data-page="/pages/certification/index" bindtap="goPage">立即认证</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <view>
+          <view class="section-title">角色说明</view>
+          <view class="section-subtitle">围绕你刚补充的业务角色重新设计</view>
+        </view>
+      </view>
+      <view class="list-stack">
+        <view class="card role-card" wx:for="{{homeData.roleCards}}" wx:key="title">
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-copy">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <view>
+          <view class="section-title">快捷入口</view>
+          <view class="section-subtitle">按小程序真实操作链路组织</view>
+        </view>
+      </view>
+      <view class="grid-two">
+        <view class="card entry-card" wx:for="{{homeData.quickEntries}}" wx:key="title" data-page="{{item.page}}" bindtap="goPage">
+          <view class="entry-icon">◆</view>
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-copy">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <view>
+          <view class="section-title">精选仪器</view>
+          <view class="section-subtitle">认证用户发布的热门设备</view>
+        </view>
+      </view>
+      <view class="list-stack">
+        <view class="card instrument-card" wx:for="{{homeData.featuredInstruments}}" wx:key="id" data-id="{{item.id}}" bindtap="openInstrument">
+          <view class="feature-top">
+            <view>
+              <view class="feature-title">{{item.name}}</view>
+              <view class="meta-text">{{item.school}} · {{item.college}}</view>
+            </view>
+            <view class="feature-price">{{item.priceLabel}}</view>
+          </view>
+          <view class="feature-copy">{{item.desc}}</view>
+          <view class="chip-row">
+            <view class="chip" wx:for="{{item.tags}}" wx:key="*this">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

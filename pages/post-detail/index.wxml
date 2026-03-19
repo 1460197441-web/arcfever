@@ -1,0 +1,33 @@
+<view class="page-shell">
+  <view class="nav-row">
+    <view class="back-btn" bindtap="goBack">‹</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading-state">正在加载帖子...</view>
+
+  <block wx:elif="{{post}}">
+    <view class="hero-panel">
+      <view class="chip detail-chip">{{post.tag}}</view>
+      <view class="hero-title small">{{post.title}}</view>
+      <view class="detail-meta">{{post.author}} · {{post.likes}} 赞 · {{post.comments}} 评论</view>
+    </view>
+
+    <view class="section">
+      <view class="card post-body">
+        <view class="post-content">{{post.content}}</view>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-head">
+        <view class="section-title">相关文章</view>
+      </view>
+      <view class="list-stack">
+        <view class="card post-item" wx:for="{{related}}" wx:key="id" data-id="{{item.id}}" bindtap="openPost">
+          <view class="feature-title">{{item.title}}</view>
+          <view class="feature-copy">{{item.excerpt}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

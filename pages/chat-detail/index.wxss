@@ -1,0 +1,31 @@
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+.buyer {
+  align-items: flex-end;
+}
+
+.seller {
+  align-items: flex-start;
+}
+
+.message-bubble {
+  max-width: 520rpx;
+  padding: 22rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10rpx 26rpx rgba(20, 48, 74, 0.06);
+}
+
+.buyer .message-bubble {
+  background: linear-gradient(135deg, #24a8ad 0%, #155b91 100%);
+  color: #ffffff;
+}
+
+.message-time {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #7d95aa;
+}
