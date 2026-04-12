@@ -1,52 +1,79 @@
-.detail-shell {
-  padding-bottom: 180rpx;
+.detail-media-wrap {
+  padding: 8rpx 24rpx 0;
 }
 
-.meta-line {
-  margin-top: 14rpx;
-  font-size: 25rpx;
-  color: #4d6c85;
+.detail-media-card {
+  position: relative;
+  height: 440rpx;
+  border-radius: 32rpx;
+  overflow: hidden;
+  background: linear-gradient(145deg, #06080d 0%, #0f1724 58%, #151d2a 100%);
+  box-shadow: 0 26rpx 54rpx rgba(15, 23, 42, 0.18);
 }
 
-.top-gap {
+.detail-media-fallback {
+  width: 100%;
+  height: 100%;
+  padding: 34rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.detail-media-kicker {
+  font-size: 22rpx;
+  letter-spacing: 4rpx;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.detail-media-title {
+  margin-top: 18rpx;
+  max-width: 84%;
+  font-size: 40rpx;
+  line-height: 1.28;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.detail-media-copy {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.detail-actions {
+  margin-top: 20rpx;
+}
+
+.total-chip {
+  background: #111111;
+  color: #ffffff;
+}
+
+.date-block {
   margin-top: 18rpx;
 }
 
-.instrument-card {
-  padding: 26rpx;
+.picker-action {
+  min-width: 144rpx;
+  padding: 0 24rpx;
 }
 
-.action-bar {
-  position: fixed;
-  left: 24rpx;
-  right: 24rpx;
-  bottom: 30rpx;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 16rpx;
-  padding: 14rpx;
-  border-radius: 30rpx;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 18rpx 40rpx rgba(20, 48, 74, 0.12);
+.insurance-select {
+  margin-top: 12rpx;
 }
 
-.ghost-action,
-.primary-action {
-  min-height: 82rpx;
-  border-radius: 24rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 27rpx;
-  font-weight: 600;
+.detail-top-gap {
+  margin-top: 24rpx;
 }
 
-.ghost-action {
-  background: #eef6fb;
-  color: #155b91;
+.top-gap-plain {
+  margin-top: 24rpx;
 }
 
-.primary-action {
-  background: linear-gradient(135deg, #24a8ad 0%, #155b91 100%);
-  color: #ffffff;
+.compact-feed {
+  gap: 32rpx;
 }

@@ -1,0 +1,3 @@
+.package-card {
+  padding: 28rpx;
+}

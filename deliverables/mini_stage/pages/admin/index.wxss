@@ -1,0 +1,4 @@
+.menu-card {
+  padding: 28rpx;
+  min-height: 150rpx;
+}

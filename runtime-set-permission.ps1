@@ -1,0 +1,1 @@
+& 'C:\Users\arcfever\AppData\Roaming\npm\tcb.ps1' --% permission set function -e cloud1-7gjejudlc855f225 --level custom --rule {"*":{"invoke":true}}

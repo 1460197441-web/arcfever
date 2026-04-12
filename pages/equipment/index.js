@@ -1,5 +1,12 @@
 const { callService } = require('../../utils/api');
 
+function showError(error) {
+  wx.showToast({
+    title: (error && error.message) || '仪器列表加载失败',
+    icon: 'none'
+  });
+}
+
 Page({
   data: {
     loading: true,
@@ -10,7 +17,8 @@ Page({
   },
   onLoad(options) {
     this.setData({
-      activeCategory: options.category || '全部'
+      activeCategory: options.category ? decodeURIComponent(options.category) : '全部',
+      keyword: options.keyword ? decodeURIComponent(options.keyword) : ''
     });
     this.loadData();
   },
@@ -19,13 +27,18 @@ Page({
     callService('getInstruments', {
       category: activeCategory,
       keyword
-    }).then((res) => {
-      this.setData({
-        loading: false,
-        categories: res.categories,
-        list: res.list
+    })
+      .then((res) => {
+        this.setData({
+          loading: false,
+          categories: res.categories,
+          list: res.list
+        });
+      })
+      .catch((error) => {
+        this.setData({ loading: false });
+        showError(error);
       });
-    });
   },
   goBack() {
     wx.navigateBack({ delta: 1 });

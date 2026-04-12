@@ -1,39 +1,61 @@
-<view class="page-shell">
-  <view class="nav-row">
-    <view class="back-btn" bindtap="goBack">‹</view>
-  </view>
-  <view class="hero-panel">
-    <view class="hero-tag">分类导航</view>
-    <view class="hero-title">先按设备类型，再按需求细找</view>
-    <view class="hero-copy">同时展示当前管理员维护的认证院校与学院，便于用户明确认证归属。</view>
+<view class="page-shell category-page">
+  <view class="topbar">
+    <text class="brand">Discover.</text>
   </view>
 
-  <view class="section">
-    <view class="section-head">
-      <view class="section-title">仪器分类</view>
-    </view>
-    <view class="grid-two">
-      <view class="card menu-card" wx:for="{{categories}}" wx:key="*this" data-category="{{item}}" bindtap="openCategory">
-        <view class="feature-title">{{item}}</view>
-        <view class="feature-copy">进入该分类查看在架仪器</view>
-      </view>
-    </view>
-  </view>
+  <view wx:if="{{loading}}" class="loading-state">正在整理分类与细分方向...</view>
 
-  <view class="section">
-    <view class="section-head">
-      <view>
-        <view class="section-title">认证院校与学院</view>
-        <view class="section-subtitle">由管理者统一维护</view>
-      </view>
+  <view wx:else>
+    <view class="hero-copy category-copy">
+      用更高效的方式进入仪器市场：左侧看主分类，右侧直接点进具体细分方向，不再用大卡片挤占视线。
     </view>
-    <view class="list-stack">
-      <view class="card panel" wx:for="{{schools}}" wx:key="id">
-        <view class="feature-title">{{item.name}}</view>
-        <view class="chip-row top-gap">
-          <view class="chip" wx:for="{{item.colleges}}" wx:key="*this">{{item}}</view>
+
+    <view class="category-shell">
+      <scroll-view scroll-y class="category-sidebar">
+        <view
+          wx:for="{{categories}}"
+          wx:key="*this"
+          class="category-tab {{activeCategory === item ? 'active' : ''}}"
+          data-category="{{item}}"
+          bindtap="chooseCategory"
+        >
+          {{item}}
         </view>
-      </view>
+      </scroll-view>
+
+      <scroll-view scroll-y class="category-main">
+        <view class="category-main-head">
+          <view>
+            <view class="section-title">{{activeCategory || '分类'}}</view>
+            <view class="section-subtitle">选择一个细分方向，直接进入对应的仪器市场</view>
+          </view>
+          <view class="inline-link" bindtap="openCategoryMarket">看全部</view>
+        </view>
+
+        <view class="category-grid">
+          <view
+            wx:for="{{categoryDetails}}"
+            wx:key="title"
+            class="category-cell compact-shadow-card"
+            data-category="{{activeCategory}}"
+            data-keyword="{{item.title}}"
+            bindtap="openSubcategory"
+          >
+            <view class="category-icon">{{item.icon}}</view>
+            <view class="category-cell-title">{{item.title}}</view>
+            <view class="category-cell-note">{{item.note}}</view>
+          </view>
+        </view>
+
+        <view class="compact-shadow-card school-panel" wx:if="{{schools.length}}">
+          <view class="section-title">认证院校</view>
+          <view class="section-subtitle">这些学校和学院会出现在认证联动选择里</view>
+          <view class="school-row" wx:for="{{schools.slice(0, 4)}}" wx:key="id">
+            <view class="school-name">{{item.name}}</view>
+            <view class="school-colleges">{{item.collegesText}}</view>
+          </view>
+        </view>
+      </scroll-view>
     </view>
   </view>
 </view>
